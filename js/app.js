@@ -9,7 +9,7 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.setClearColor( 0xFFFFFF );
 document.body.appendChild( renderer.domElement );
 
-camera.position.z = 500;
+camera.position.z = 1500;
 
 const light = new THREE.DirectionalLight( 0xfcf9e8, 1 );
 scene.add(light);
@@ -63,7 +63,7 @@ var meshes = [];
 
 var objLoader = new THREE.OBJLoader();
 
-objLoader.load( 'model/ked/sneaker.obj', function ( object ) {
+objLoader.load( 'model/ked/Красовок.obj', function ( object ) {
 
 
 
@@ -90,7 +90,7 @@ objLoader.load( 'model/ked/sneaker.obj', function ( object ) {
         mesh.material = new THREE.MeshPhongMaterial({map: textureBody, specular: 0xfceed2, bumpScale: 0.4, shininess: 25});
         scene.add(mesh);
     })
-    meshes[11].material = new THREE.MeshPhongMaterial({map: textureLaces, specular: 0xfceed2, bumpScale: 0.4, shininess: 25});
+    meshes[0].material = new THREE.MeshPhongMaterial({map: textureLaces, specular: 0xfceed2, bumpScale: 0.4, shininess: 25});
 
     // var mapHeightBody = new THREE.TextureLoader().load( "model/BODY bump MAP.jpg" );
     // var mapHeightHead = new THREE.TextureLoader().load( "model/HEAD bump MAP.jpg" );
@@ -112,9 +112,9 @@ objLoader.load( 'model/ked/sneaker.obj', function ( object ) {
 
 const controls = new THREE.TrackballControls( camera );
 
-// controls.rotateSpeed = 1.0;
-// controls.zoomSpeed = 1.2;
-// controls.panSpeed = 0.8;
+controls.rotateSpeed = 1.0;
+controls.zoomSpeed = 1.2;
+controls.panSpeed = 0.8;
 
 var render = function () {
     requestAnimationFrame( render );
