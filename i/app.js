@@ -1,15 +1,21 @@
 import * as THREE from './three.module.js';
 import scene from './scene.js';
 import cubes from './cubes.js';
-import light from './light.js';
+import lights from './light.js';
 import camera from './camera.js';
 import parent from "./text.js";
 import lines from './lines.js'
-// import ked from './ked.js'
-console.log(light);
+import objects from './sun_sistem.js';
+import {OrbitControls} from './OrbitControls.js';
 
 const canvas = document.querySelector('#c');
 const renderer = new THREE.WebGLRenderer({canvas});
+
+const controls = new OrbitControls(camera, canvas);
+controls.target.set(0, 2, 0);
+controls.update();
+
+console.log(lights);
 
 function resizeRendererToDisplaySize(renderer) {
     const width = canvas.clientWidth;
@@ -38,6 +44,11 @@ function render(time) {
     // textMesh.position.y += .01;
     // textMesh.rotation.y += .01;
     parent.rotation.x += .03;
+
+    objects.map(o=>{
+        o.rotation.y += -.01;
+    })
+
 
 
     resizeRendererToDisplaySize(renderer);

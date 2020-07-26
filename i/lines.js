@@ -3,7 +3,7 @@ import scene from "./scene.js";
 
 function makeLine(x,y,z){
 
-    const geometry = new THREE.BufferGeometry();
+    const geometry = new THREE.Geometry();
     geometry.vertices.push(new THREE.Vector3(0,0,0));
     geometry.vertices.push(new THREE.Vector3(x,y,z));
     const material = new THREE.LineBasicMaterial({color: 0x0000ff});
@@ -15,9 +15,12 @@ function makeLine(x,y,z){
 
 
 const lines = [
-    makeLine(0,0,10),
+    makeLine(0,0,100),
+    makeLine(0,0,-100),
     makeLine(0,10,0),
+    makeLine(0,-10,0),
     makeLine(10,0,0),
+    makeLine(-10,0,0),
 ];
 
 export  default lines;

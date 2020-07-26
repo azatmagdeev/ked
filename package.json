@@ -1,0 +1,22 @@
+{
+  "name": "ked",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "live-server": "live-server i"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azatmagdeev/ked.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/azatmagdeev/ked/issues"
+  },
+  "homepage": "https://github.com/azatmagdeev/ked#readme",
+  "dependencies": {
+    "live-server": "^1.2.1"
+  }
+}

@@ -22,6 +22,7 @@ loader.load('./font.json', (font) => {
 
     const textMesh = new THREE.Mesh(geometry,new THREE.MeshPhongMaterial({color:0xff0000,}));
     parent.add(textMesh);
+    parent.position.y = -2
     scene.add(parent);
 });
 
