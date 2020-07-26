@@ -17,10 +17,10 @@ function makeLine(x,y,z){
 const lines = [
     makeLine(0,0,100),
     makeLine(0,0,-100),
-    makeLine(0,10,0),
-    makeLine(0,-10,0),
-    makeLine(10,0,0),
-    makeLine(-10,0,0),
+    makeLine(0,100,0),
+    makeLine(0,-100,0),
+    makeLine(100,0,0),
+    makeLine(-100,0,0),
 ];
 
 export  default lines;

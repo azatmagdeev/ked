@@ -1,24 +1,14 @@
-// import * as THREE from "./three.min.js";
-// const three = new THREE();
-
-// import * as THREE from "../i/three.module";
 
 import {OrbitControls} from "../i/OrbitControls.js";
-// import * as THREE from "../i/three.module";
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 65, window.innerWidth/window.innerHeight, 0.1, 10000 );
+camera.position.set(1000,200,-200);
 
 const renderer = new THREE.WebGLRenderer({ antialias:true });
 renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.setClearColor( 0xFFFFFF );
 document.body.appendChild( renderer.domElement );
-
-// camera.position.z = 0;
-// camera.position.x = 1000;
-// camera.position.y = 100;
-// camera.lookAt(100,0,0)
-// camera.position.set(1000,0,0);
 
 const light = new THREE.DirectionalLight( 0xfcf9e8, 1 );
 scene.add(light);
@@ -84,43 +74,7 @@ objLoader.load( 'shoe/sneaker.obj', function ( object ) {
             ked.children.push(child);
         }
     });
-    // var sole = meshes[0,1,2];
-    // var laces = meshes[11];
-    // var body = meshes[3,4,6,7,8,9,10];
-    // var heel = meshes[5];
 
-    // head.position.y = -80;
-    // body.position.y = -80;
-    //
-    // head.rotation.y = Math.PI/3;
-    // body.rotation.y = Math.PI/3;
-
-    // meshes.map(mesh=>{
-    //     console.log(mesh);
-    //     mesh.material = new THREE.MeshPhongMaterial({map: textureBody, specular: 0xfceed2, bumpScale: 0.4, shininess: 25});
-    //     scene.add(mesh);
-    // })
-    // meshes[0].material = new THREE.MeshPhongMaterial({map: textureLaces, specular: 0xfceed2, bumpScale: 0.4, shininess: 25});
-
-    // var mapHeightBody = new THREE.TextureLoader().load( "model/BODY bump MAP.jpg" );
-    // var mapHeightHead = new THREE.TextureLoader().load( "model/HEAD bump MAP.jpg" );
-    //
-    // sole.material = new THREE.MeshPhongMaterial({map: textureSole, specular: 0xfceed2, bumpScale: 0.4, shininess: 25});
-    // body.material = new THREE.MeshPhongMaterial({map: textureBody, specular: 0xfceed2, bumpScale: 0.4, shininess: 25});
-    // laces.material = new THREE.MeshPhongMaterial({map: textureLaces, specular: 0xfceed2, bumpScale: 0.4, shininess: 25});
-    // heel.material = new THREE.MeshPhongMaterial({map: textureHeel, specular: 0xfceed2, bumpScale: 0.4, shininess: 25});
-
-    // console.log('head', head);
-    //
-    // scene.add(sole);
-    // scene.add(body);
-    // scene.add(laces);
-    // scene.add(heel);
-    // ked.computeBoundingBox();
-    // ked.boundingBox.getCenter(ked.position).multiplyScalar(-1);
-    // const axes = new THREE.AxesHelper();
-    // ked.add(axes);
-    // ked.position.set(0,-100,-500);
     scene.add(ked);
 
 }, onProgress, onError );

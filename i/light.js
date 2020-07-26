@@ -7,7 +7,7 @@ const color = 0xFFFFFF;
 const intensity = 5;
  lights[1] = new THREE.DirectionalLight(color, intensity-4);
 lights[0] = new THREE.PointLight(color, intensity);
-lights[1].position.set(-1, 2, 4);
+lights[1].position.set(0, 1000, 0);
 scene.add(lights[0],lights[1]);
 
 export default lights;
