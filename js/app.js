@@ -1,5 +1,4 @@
 import {OrbitControls} from "../i/OrbitControls.js";
-// import * as THREE from "../i/three.module";
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.1, 10000);
@@ -79,18 +78,32 @@ objLoader.load('shoe/sneaker.obj', function (object) {
                 });
             }
             if (
-                child.name === 'leather_black_005'/*insidetongue*/ ||
+
                 child.name === 'leather_black_004'/*outsidetongue*/
-                || child.name === 'Object001'/*heel*/
+
                 || child.name === 'leather_black001'/*body*/
-                || child.name === 'Object003'/*frontinsidebody*/
-                || child.name === 'Object004'/*backinsidebody*/
+
+
                 || child.name === 'Object005'/*fromlaces*/
-                || child.name === 'Object006'/*heeltop*/
+
             ) {
                 child.material = new THREE.MeshPhongMaterial({
                     side: THREE.DoubleSide,
                     map: textureBody,
+                    // specular: 0xfceed2,
+                    bumpScale: 0.4,
+                });
+            }
+            if(
+                child.name === 'leather_black_005'/*insidetongue*/
+                ||child.name === 'Object001'/*heel*/
+                || child.name === 'Object006'/*heeltop*/
+                || child.name === 'Object004'/*backinsidebody*/
+                || child.name === 'Object003'/*frontinsidebody*/
+            ){
+                child.material = new THREE.MeshPhongMaterial({
+                    side: THREE.DoubleSide,
+                    map: textureHeel,
                     // specular: 0xfceed2,
                     bumpScale: 0.4,
                 });
@@ -115,27 +128,27 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.target.set(300, 100, 0);
 controls.update();
 
-function makeLine(x, y, z) {
-
-    const geometry = new THREE.Geometry();
-    geometry.vertices.push(new THREE.Vector3(0, 0, 0));
-    geometry.vertices.push(new THREE.Vector3(x, y, z));
-    const material = new THREE.LineBasicMaterial({color: 0x0000ff});
-    const line = new THREE.Line(geometry, material);
-    console.log(line);
-    scene.add(line);
-    return line;
-}
-
-
-const lines = [
-    makeLine(0, 0, 1000),
-    makeLine(0, 0, -1000),
-    makeLine(0, 1000, 0),
-    makeLine(0, -1000, 0),
-    makeLine(1000, 0, 0),
-    makeLine(-1000, 0, 0),
-];
+// function makeLine(x, y, z) {
+//
+//     const geometry = new THREE.Geometry();
+//     geometry.vertices.push(new THREE.Vector3(0, 0, 0));
+//     geometry.vertices.push(new THREE.Vector3(x, y, z));
+//     const material = new THREE.LineBasicMaterial({color: 0x0000ff});
+//     const line = new THREE.Line(geometry, material);
+//     console.log(line);
+//     scene.add(line);
+//     return line;
+// }
+//
+//
+// const lines = [
+//     makeLine(0, 0, 1000),
+//     makeLine(0, 0, -1000),
+//     makeLine(0, 1000, 0),
+//     makeLine(0, -1000, 0),
+//     makeLine(1000, 0, 0),
+//     makeLine(-1000, 0, 0),
+// ];
 
 var render = function () {
     requestAnimationFrame(render);
