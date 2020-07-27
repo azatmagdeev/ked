@@ -91,7 +91,7 @@ objLoader.load('shoe/sneaker.obj', function (object) {
                     side: THREE.DoubleSide,
                     map: textureBody,
                     // specular: 0xfceed2,
-                    bumpScale: 0.4,
+                    // bumpScale: 0,
                 });
             }
             if(
@@ -105,7 +105,7 @@ objLoader.load('shoe/sneaker.obj', function (object) {
                     side: THREE.DoubleSide,
                     map: textureHeel,
                     // specular: 0xfceed2,
-                    bumpScale: 0.4,
+                    // bumpScale: 0.4,
                 });
             }
             ked.children.push(child);
@@ -117,7 +117,7 @@ objLoader.load('shoe/sneaker.obj', function (object) {
         side: THREE.DoubleSide,
         map: textureLaces,
         // specular: 0xfceed2,
-        bumpScale: 0.4,
+        // bumpScale: 0.4,
     });
 
     scene.add(ked);
