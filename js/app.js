@@ -10,7 +10,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setClearColor(0x888888);
 document.body.appendChild(renderer.domElement);
 
-const light = new THREE.DirectionalLight(0xfcf9e8, 1);
+const light = new THREE.DirectionalLight(0xffffff, 1);
 scene.add(light);
 
 var ambiColor = "#cbc9bb";
@@ -74,7 +74,7 @@ objLoader.load('shoe/sneaker.obj', function (object) {
                 child.material = new THREE.MeshPhongMaterial({
                     side: THREE.DoubleSide,
                     map: textureSole,
-                    specular: 0xfceed2,
+                    // specular: 0xfceed2,
                     bumpScale: 0.4,
                 });
             }
@@ -91,7 +91,7 @@ objLoader.load('shoe/sneaker.obj', function (object) {
                 child.material = new THREE.MeshPhongMaterial({
                     side: THREE.DoubleSide,
                     map: textureBody,
-                    specular: 0xfceed2,
+                    // specular: 0xfceed2,
                     bumpScale: 0.4,
                 });
             }
@@ -103,7 +103,7 @@ objLoader.load('shoe/sneaker.obj', function (object) {
     ked.children[11].material = new THREE.MeshPhongMaterial({
         side: THREE.DoubleSide,
         map: textureLaces,
-        specular: 0xfceed2,
+        // specular: 0xfceed2,
         bumpScale: 0.4,
     });
 
