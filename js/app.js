@@ -70,7 +70,7 @@ objLoader.load('shoe/sneaker.obj', function (object) {
             console.log(child);
             child.material = new THREE.MeshNormalMaterial({side: THREE.DoubleSide,});
             if (child.name === 'slipsole001' || child.name === 'sole_stitch001' || child.name === 'sole_003') {
-                child.material = new THREE.MeshPhongMaterial({
+                child.material = new THREE.MeshLambertMaterial({
                     side: THREE.DoubleSide,
                     map: textureSole,
                     // specular: 0xfceed2,
@@ -87,7 +87,7 @@ objLoader.load('shoe/sneaker.obj', function (object) {
                 || child.name === 'Object005'/*fromlaces*/
 
             ) {
-                child.material = new THREE.MeshPhongMaterial({
+                child.material = new THREE.MeshLambertMaterial({
                     side: THREE.DoubleSide,
                     map: textureBody,
                     // specular: 0xfceed2,
@@ -101,7 +101,7 @@ objLoader.load('shoe/sneaker.obj', function (object) {
                 || child.name === 'Object004'/*backinsidebody*/
                 || child.name === 'Object003'/*frontinsidebody*/
             ){
-                child.material = new THREE.MeshPhongMaterial({
+                child.material = new THREE.MeshLambertMaterial({
                     side: THREE.DoubleSide,
                     map: textureHeel,
                     // specular: 0xfceed2,
@@ -113,7 +113,7 @@ objLoader.load('shoe/sneaker.obj', function (object) {
     });
     console.log(ked.children[11].name)
 
-    ked.children[11].material = new THREE.MeshPhongMaterial({
+    ked.children[11].material = new THREE.MeshLambertMaterial({
         side: THREE.DoubleSide,
         map: textureLaces,
         // specular: 0xfceed2,
@@ -157,3 +157,9 @@ var render = function () {
 };
 
 render();
+
+let i = 0;
+document.addEventListener('dblclick',()=>{
+    console.log(ked.children[i++].material);
+    ked.children[i++].material.emissive = 'purple'
+})
