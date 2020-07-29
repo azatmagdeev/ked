@@ -123,6 +123,126 @@ objLoader.load('shoe/sneaker.obj', function (object) {
     scene.add(ked);
 
 }, onProgress, onError);
+objLoader.load('i/Красовок.obj', function (object) {
+
+    object.traverse(function (child) {
+        if (child instanceof THREE.Mesh) {
+            console.log(child);
+            child.material = new THREE.MeshNormalMaterial({side: THREE.DoubleSide,});
+            if (child.name === 'slipsole001' || child.name === 'sole_stitch001' || child.name === 'sole_003') {
+                child.material = new THREE.MeshLambertMaterial({
+                    side: THREE.DoubleSide,
+                    map: textureSole,
+                    // specular: 0xfceed2,
+                    bumpScale: 0.4,
+                });
+            }
+            if (
+
+                child.name === 'leather_black_004'/*outsidetongue*/
+
+                || child.name === 'leather_black001'/*body*/
+
+
+                || child.name === 'Object005'/*fromlaces*/
+
+            ) {
+                child.material = new THREE.MeshLambertMaterial({
+                    side: THREE.DoubleSide,
+                    map: textureBody,
+                    // specular: 0xfceed2,
+                    // bumpScale: 0,
+                });
+            }
+            if(
+                child.name === 'leather_black_005'/*insidetongue*/
+                ||child.name === 'Object001'/*heel*/
+                || child.name === 'Object006'/*heeltop*/
+                || child.name === 'Object004'/*backinsidebody*/
+                || child.name === 'Object003'/*frontinsidebody*/
+            ){
+                child.material = new THREE.MeshLambertMaterial({
+                    side: THREE.DoubleSide,
+                    map: textureHeel,
+                    // specular: 0xfceed2,
+                    // bumpScale: 0.4,
+                });
+            }
+            ked.children.push(child);
+        }
+    });
+    console.log(ked.children[11].name)
+
+    ked.children[11].material = new THREE.MeshLambertMaterial({
+        side: THREE.DoubleSide,
+        map: textureLaces,
+        // specular: 0xfceed2,
+        // bumpScale: 0.4,
+    });
+
+    scene.add(ked);
+
+}, onProgress, onError);
+objLoader.load('i/1.obj', function (object) {
+
+    object.traverse(function (child) {
+        if (child instanceof THREE.Mesh) {
+            console.log(child);
+            child.material = new THREE.MeshNormalMaterial({side: THREE.DoubleSide,});
+            if (child.name === 'slipsole001' || child.name === 'sole_stitch001' || child.name === 'sole_003') {
+                child.material = new THREE.MeshLambertMaterial({
+                    side: THREE.DoubleSide,
+                    map: textureSole,
+                    // specular: 0xfceed2,
+                    bumpScale: 0.4,
+                });
+            }
+            if (
+
+                child.name === 'leather_black_004'/*outsidetongue*/
+
+                || child.name === 'leather_black001'/*body*/
+
+
+                || child.name === 'Object005'/*fromlaces*/
+
+            ) {
+                child.material = new THREE.MeshLambertMaterial({
+                    side: THREE.DoubleSide,
+                    map: textureBody,
+                    // specular: 0xfceed2,
+                    // bumpScale: 0,
+                });
+            }
+            if(
+                child.name === 'leather_black_005'/*insidetongue*/
+                ||child.name === 'Object001'/*heel*/
+                || child.name === 'Object006'/*heeltop*/
+                || child.name === 'Object004'/*backinsidebody*/
+                || child.name === 'Object003'/*frontinsidebody*/
+            ){
+                child.material = new THREE.MeshLambertMaterial({
+                    side: THREE.DoubleSide,
+                    map: textureHeel,
+                    // specular: 0xfceed2,
+                    // bumpScale: 0.4,
+                });
+            }
+            ked.children.push(child);
+        }
+    });
+    console.log(ked.children[11].name)
+
+    ked.children[11].material = new THREE.MeshLambertMaterial({
+        side: THREE.DoubleSide,
+        map: textureLaces,
+        // specular: 0xfceed2,
+        // bumpScale: 0.4,
+    });
+
+    scene.add(ked);
+
+}, onProgress, onError);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.target.set(300, 100, 0);
