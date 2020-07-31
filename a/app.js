@@ -20,17 +20,17 @@ const controls = new OrbitControls(camera, canvas);
 controls.target.set(0, 0, 0);
 controls.update();
 
-const light = new THREE.DirectionalLight(0xffffff, 1);
+const light = new THREE.DirectionalLight(0xffffff, 5);
 scene.add(light);
 
 
 {
     const mtlLoader = new MTLLoader();
-    mtlLoader.load('./модель обуви/модель обуви.mtl', (mtlParseResult) => {
+    mtlLoader.load('./shoe-model/модель обуви.mtl', (mtlParseResult) => {
         const objLoader = new OBJLoader2();
         const materials =  MtlObjBridge.addMaterialsFromMtlLoader(mtlParseResult);
         objLoader.addMaterials(materials);
-        objLoader.load('./модель обуви/модель обуви.obj', (root) => {
+        objLoader.load('./shoe-model/модель обуви.obj', (root) => {
             scene.add(root);
         });
     });
